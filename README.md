@@ -1,6 +1,6 @@
 # Copilot Agents
 
-Extended agents for GitHub Copilot in VS Code built on top of default system
+Extended agents for GitHub Copilot in VS Code, built on top of default system
 prompts. Tested only with DeepSeek API, but should work with any
 OpenAI-compatible API.
 
@@ -30,6 +30,24 @@ stateDiagram-v2
   Edit --> Validate
   Validate --> Edit : still failing
   Validate --> [*] : success
+```
+
+### Inspect
+
+A long-running agent to find bugs in the codebase, creating a bug report for
+escalation while giving the option to fix immediately. Pair with a frontier
+model for best results.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Assess
+  Assess --> Investigate
+  Investigate --> Fix
+  Fix --> [*]
+
+  state Fix {
+    Edit --> Validate
+  }
 ```
 
 ## Usage

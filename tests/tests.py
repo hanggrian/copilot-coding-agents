@@ -1,8 +1,10 @@
 from unittest import TestCase
 
-from deepeval.metrics import GEval
+from deepeval.metrics import GEval, AnswerRelevancyMetric, BaseMetric
 from deepeval.models import DeepEvalBaseLLM
 from deepeval.test_case import SingleTurnParams, LLMTestCase
+
+from tests.llms import OPENAI_REVIEWER_MODEL
 
 
 class StructureTestCase(TestCase):
@@ -13,6 +15,14 @@ class StructureTestCase(TestCase):
 
 
 class QualityTestCase(TestCase):
+    METRICS: list[BaseMetric] = [
+        AnswerRelevancyMetric(
+            threshold=0.5,
+            model=OPENAI_REVIEWER_MODEL,
+            include_reason=True,
+        ),
+    ]
+
     @staticmethod
     def prompt_quality_metric(
         name: str,

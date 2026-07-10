@@ -1,7 +1,6 @@
 from unittest import main
 
 from deepeval import assert_test
-from deepeval.metrics import AnswerRelevancyMetric
 from deepeval.metrics.g_eval.g_eval import SingleTurnParams
 
 from .llms import OPENAI_REVIEWER_MODEL, prompt_openai
@@ -106,20 +105,9 @@ class TestExplainQuality(QualityTestCase):
         self._assert_responses(self.EXTRA_QUESTIONS[2])
 
     def _assert_responses(self, question: str) -> None:
-        relevancy = \
-            AnswerRelevancyMetric(
-                threshold=0.5,
-                model=OPENAI_REVIEWER_MODEL,
-                include_reason=True,
-            )
         assert_test(
             self.make_test_case(question, prompt_openai(self.EXPLAIN_PROMPT, question)),
-            [relevancy],
-            run_async=False,
-        )
-        assert_test(
-            self.make_test_case(question, prompt_openai(self.ASK_PROMPT, question)),
-            [relevancy],
+            self.METRICS,
             run_async=False,
         )
 

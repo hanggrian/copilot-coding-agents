@@ -9,7 +9,7 @@ from .tests import StructureTestCase, QualityTestCase
 
 class TestInspectStructure(StructureTestCase):
     INSPECT_FULL = StructureTestCase.load_full('agents/Inspect.agent.md')
-    PLAN_FULL = StructureTestCase.load_full('agents/template/Plan.agent.md')
+    PLAN_FULL = StructureTestCase.load_full('template/Plan.agent.md')
 
     def test_inspect(self) -> None:
         lowered = self.INSPECT_FULL.lower()

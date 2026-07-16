@@ -10,7 +10,7 @@ from .tests import StructureTestCase, QualityTestCase
 class TestMaintainStructure(StructureTestCase):
     MAINTAIN_FULL = StructureTestCase.load_full('agents/Maintain.agent.md')
     ACCESSIBILITY_FULL = \
-        StructureTestCase.load_full('agents/template/accessibility-runtime-tester.agent.md')
+        StructureTestCase.load_full('template/accessibility-runtime-tester.agent.md')
 
     def test_maintain(self) -> None:
         lowered = self.MAINTAIN_FULL.lower()

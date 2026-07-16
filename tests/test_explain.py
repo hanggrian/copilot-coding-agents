@@ -9,7 +9,7 @@ from .tests import StructureTestCase, QualityTestCase
 
 class TestExplainStructure(StructureTestCase):
     EXPLAIN_FULL = StructureTestCase.load_full('agents/Explain.agent.md')
-    ASK_FULL = StructureTestCase.load_full('agents/template/Ask.agent.md')
+    ASK_FULL = StructureTestCase.load_full('template/Ask.agent.md')
 
     def test_explain(self) -> None:
         lowered = self.EXPLAIN_FULL.lower()

@@ -1,8 +1,14 @@
-# Copilot Agents
+# Coding Agents
 
-Extended agents for GitHub Copilot in VS Code, built on top of default system
-prompts. Tested only with DeepSeek API, but should work with any
-OpenAI-compatible API.
+Coding agents for GitHub Copilot in VS Code, built on top of default agents.
+Tested only with OpenAI-compatible API.
+
+## Download
+
+Put the agent Markdown files in:
+
+- `.github/agents/` for repository-specific agents.
+- `~/.copilot/agents/` for global agents.
 
 ## Agents
 
@@ -52,5 +58,4 @@ stateDiagram-v2
 
 ## Usage
 
-Create a new custom agent with `Chat: Configure Custom Agent...` command and
-select one of the provided templates.
+Switch between agents in `VSCode > Chat > Set Agent`.
